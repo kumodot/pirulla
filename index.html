@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apoie o Pirulla25</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        h1 {
+            color: #ff4444;
+            margin-bottom: 30px;
+        }
+        .message {
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: left;
+            border-left: 5px solid #ff4444;
+        }
+        .video-container {
+            margin: 20px 0;
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        button {
+            background-color: #ff4444;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 50px;
+            margin: 20px 0;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(255, 68, 68, 0.3);
+        }
+        button:hover {
+            background-color: #ff2222;
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(255, 68, 68, 0.4);
+        }
+        .support-box {
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border: 1px solid #ff4444;
+        }
+        .support-box a {
+            color: #ffbb33;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .support-box a:hover {
+            text-decoration: underline;
+            color: #ff8800;
+        }
+        .encouragement {
+            font-size: 24px;
+            color: #ff4444;
+            margin: 30px 0;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Apoie o Pirulla25</h1>
+    
+    <div class="message">
+        <p>Pirulla é um importante divulgador científico que dedicou anos criando conteúdo educativo de qualidade, combatendo pseudociência, negacionismo, revisionismo histórico, fascismo e outros tipos de desinformação.</p>
+        
+        <p>Seus vídeos ajudaram a educar uma incontável quantidade de pessoas, formando pensamento crítico e defendendo a ciência e a razão.</p>
+        
+        <p>Recentemente, o Pirulla sofreu um AVC e agora precisa da nossa ajuda. Além disso, ele sempre ajudou seus pais financeiramente, e essa situação tornou tudo mais difícil.</p>
+    </div>
+    
+    <div class="video-container">
+        <iframe id="videoFrame" width="560" height="315" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen muted></iframe>
+    </div>
+    
+    <button id="randomVideoBtn">Assistir Outro Vídeo</button>
+    
+    <div class="support-box">
+        <p>Você pode ajudar de várias formas:</p>
+        <p>1. Acessando <a href="http://pirulla.com.br" target="_blank">pirulla.com.br</a> para doações diretas</p>
+        <p>2. Assistindo e compartilhando seus vídeos para manter o canal ativo</p>
+        <p>3. Deixando mensagens de apoio nos comentários</p>
+    </div>
+    
+    <div class="encouragement">FORÇA PIRULLA! VOCÊ É IMPORTANTE PARA NÓS!</div>
+
+    <script>
+        // Lista COMPLETA de vídeos do canal Pirulla25 (convertidos para embed)
+        const videos = [
+            // Vídeos individuais
+            "https://www.youtube.com/embed/i_ZyBarp2l0",
+            "https://www.youtube.com/embed/fbRWb6KIDVY",
+            
+            // Vídeos das playlists
+            "https://www.youtube.com/embed/8TPPFcZpCbA",
+            "https://www.youtube.com/embed/q4SmMz-qUxc",
+            "https://www.youtube.com/embed/RsdeYV6wvRA",
+            "https://www.youtube.com/embed/OelleGbefeU",
+            "https://www.youtube.com/embed/hUvHKz3ugOg",
+            "https://www.youtube.com/embed/3JtfHaejoa4",
+            "https://www.youtube.com/embed/QQjAPZtyd78",
+            "https://www.youtube.com/embed/m_LsMe4XWmA",
+            "https://www.youtube.com/embed/-MB2i3_9WWQ",
+            "https://www.youtube.com/embed/JIVCY5HfPSo",
+            "https://www.youtube.com/embed/JvOA1BISScs",
+            "https://www.youtube.com/embed/buxvGvsWL4E",
+            "https://www.youtube.com/embed/zq35werjY3M",
+            "https://www.youtube.com/embed/LBjDKpml85c",
+            "https://www.youtube.com/embed/z7VAKJg5vjw",
+            "https://www.youtube.com/embed/9MnqDVOjl6o",
+            "https://www.youtube.com/embed/xnitmB22JtQ",
+            "https://www.youtube.com/embed/k3GmM7bgKx4",
+            "https://www.youtube.com/embed/m_LsMe4XWmA",
+            
+            // Playlists
+            "https://www.youtube.com/embed/videoseries?list=PLdlKx3uNkxdGCkLJKmaf6OXSWi8b8zwoX",
+            "https://www.youtube.com/embed/videoseries?list=PLdlKx3uNkxdF7tls-4-vYb4DKjXSZOmIt",
+            "https://www.youtube.com/embed/videoseries?list=PLdlKx3uNkxdGb_bH_3YdoPzlC6vVARHpr",
+            "https://www.youtube.com/embed/videoseries?list=PLdlKx3uNkxdHp8K79QE3FJVwOmKPmZawq",
+            "https://www.youtube.com/embed/videoseries?list=PLdlKx3uNkxdFkJ9zrNui_U6xZ1PJdMf16",
+            "https://www.youtube.com/embed/videoseries?list=PLdlKx3uNkxdEGEOUxMoXKe_jjjc6Rcd10",
+            "https://www.youtube.com/embed/videoseries?list=PLdlKx3uNkxdEfBZ8t3pHrfIhjSV5TqNdX",
+            "https://www.youtube.com/embed/videoseries?list=PLdlKx3uNkxdEHzEkU2FbQuHzNq9joGR1W",
+            "https://www.youtube.com/embed/videoseries?list=PLdlKx3uNkxdH7pmsNhrG4SQI4nazuoHpe",
+            "https://www.youtube.com/embed/videoseries?list=PLdlKx3uNkxdFxkDtD8SIpqFyasAynZBrg",
+            "https://www.youtube.com/embed/videoseries?list=PLdlKx3uNkxdFOQi7hXlL0zxCRcU92IroH",
+            "https://www.youtube.com/embed/videoseries?list=PLdlKx3uNkxdFlNk0wR63nGxCotWNWUE_d",
+            "https://www.youtube.com/embed/videoseries?list=PLdlKx3uNkxdGNbjdfofxmyXHj1CJ6Hwv4",
+            "https://www.youtube.com/embed/videoseries?list=PLdlKx3uNkxdGw_R3MfpJw8Va8DPewu1m6",
+            "https://www.youtube.com/embed/videoseries?list=PLdlKx3uNkxdGTEVXoey0rpXkm_JHd29uC",
+            "https://www.youtube.com/embed/videoseries?list=PLdlKx3uNkxdFItIgbMPojHE1ApOPSjdau",
+            "https://www.youtube.com/embed/videoseries?list=PLdlKx3uNkxdGmwwXzLekNC20-UOQp-41G",
+            "https://www.youtube.com/embed/videoseries?list=PLdlKx3uNkxdE89Fs54EGXbcs0qt2V2t7_",
+            "https://www.youtube.com/embed/videoseries?list=PLE9A1375DB3D798F1",
+            "https://www.youtube.com/embed/videoseries?list=PL5A2394BEE271D9EE"
+        ];
+
+        // Função para obter um vídeo aleatório
+        function getRandomVideo() {
+            const randomIndex = Math.floor(Math.random() * videos.length);
+            return videos[randomIndex];
+        }
+
+        // Função para carregar um vídeo aleatório no iframe
+        function loadRandomVideo() {
+            const videoFrame = document.getElementById('videoFrame');
+            const randomVideo = getRandomVideo();
+            videoFrame.src = randomVideo;
+        }
+
+        // Event listener para o botão
+        document.getElementById('randomVideoBtn').addEventListener('click', loadRandomVideo);
+
+        // Carregar um vídeo aleatório quando a página é aberta
+        window.onload = loadRandomVideo;
+    </script>
+</body>
+</html>
