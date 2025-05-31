@@ -91,21 +91,32 @@
             50% { transform: scale(1.05); }
             100% { transform: scale(1); }
         }
+        .date-alert {
+            background-color: #330000;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 15px 0;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
     <h1>Apoie o Pirulla25</h1>
     
     <div class="message">
+        <div class="date-alert">
+            Pirulla sofreu um AVC no dia 25 de Maio de 2024 e vai precisar de ajuda para sua recuperação nos próximos meses.
+        </div>
+        
         <p>Pirulla é um importante divulgador científico que dedicou anos criando conteúdo educativo de qualidade, combatendo pseudociência, negacionismo, revisionismo histórico, fascismo e outros tipos de desinformação.</p>
         
         <p>Seus vídeos ajudaram a educar uma incontável quantidade de pessoas, formando pensamento crítico e defendendo a ciência e a razão.</p>
         
-        <p>Recentemente, o Pirulla sofreu um AVC e agora precisa da nossa ajuda. Além disso, ele sempre ajudou seus pais financeiramente, e essa situação tornou tudo mais difícil.</p>
+        <p>Neste momento difícil, ele precisa da nossa ajuda. Além disso, ele sempre ajudou seus pais financeiramente, e essa situação tornou tudo mais desafiador.</p>
     </div>
     
     <div class="video-container">
-        <iframe id="videoFrame" width="560" height="315" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen muted></iframe>
+        <iframe id="videoFrame" width="560" height="315" frameborder="0" allowfullscreen></iframe>
     </div>
     
     <button id="randomVideoBtn">Assistir Outro Vídeo</button>
@@ -120,67 +131,48 @@
     <div class="encouragement">FORÇA PIRULLA! VOCÊ É IMPORTANTE PARA NÓS!</div>
 
     <script>
-        // Lista COMPLETA de vídeos do canal Pirulla25 (convertidos para embed)
+        // Lista COMPLETA de vídeos do canal Pirulla25
         const videos = [
             // Vídeos individuais
-            "https://www.youtube.com/embed/i_ZyBarp2l0",
-            "https://www.youtube.com/embed/fbRWb6KIDVY",
+            {video: "i_ZyBarp2l0"},
+            {video: "fbRWb6KIDVY"},
             
             // Vídeos das playlists
-            "https://www.youtube.com/embed/8TPPFcZpCbA",
-            "https://www.youtube.com/embed/q4SmMz-qUxc",
-            "https://www.youtube.com/embed/RsdeYV6wvRA",
-            "https://www.youtube.com/embed/OelleGbefeU",
-            "https://www.youtube.com/embed/hUvHKz3ugOg",
-            "https://www.youtube.com/embed/3JtfHaejoa4",
-            "https://www.youtube.com/embed/QQjAPZtyd78",
-            "https://www.youtube.com/embed/m_LsMe4XWmA",
-            "https://www.youtube.com/embed/-MB2i3_9WWQ",
-            "https://www.youtube.com/embed/JIVCY5HfPSo",
-            "https://www.youtube.com/embed/JvOA1BISScs",
-            "https://www.youtube.com/embed/buxvGvsWL4E",
-            "https://www.youtube.com/embed/zq35werjY3M",
-            "https://www.youtube.com/embed/LBjDKpml85c",
-            "https://www.youtube.com/embed/z7VAKJg5vjw",
-            "https://www.youtube.com/embed/9MnqDVOjl6o",
-            "https://www.youtube.com/embed/xnitmB22JtQ",
-            "https://www.youtube.com/embed/k3GmM7bgKx4",
-            "https://www.youtube.com/embed/m_LsMe4XWmA",
-            
-            // Playlists
-            "https://www.youtube.com/embed/videoseries?list=PLdlKx3uNkxdGCkLJKmaf6OXSWi8b8zwoX",
-            "https://www.youtube.com/embed/videoseries?list=PLdlKx3uNkxdF7tls-4-vYb4DKjXSZOmIt",
-            "https://www.youtube.com/embed/videoseries?list=PLdlKx3uNkxdGb_bH_3YdoPzlC6vVARHpr",
-            "https://www.youtube.com/embed/videoseries?list=PLdlKx3uNkxdHp8K79QE3FJVwOmKPmZawq",
-            "https://www.youtube.com/embed/videoseries?list=PLdlKx3uNkxdFkJ9zrNui_U6xZ1PJdMf16",
-            "https://www.youtube.com/embed/videoseries?list=PLdlKx3uNkxdEGEOUxMoXKe_jjjc6Rcd10",
-            "https://www.youtube.com/embed/videoseries?list=PLdlKx3uNkxdEfBZ8t3pHrfIhjSV5TqNdX",
-            "https://www.youtube.com/embed/videoseries?list=PLdlKx3uNkxdEHzEkU2FbQuHzNq9joGR1W",
-            "https://www.youtube.com/embed/videoseries?list=PLdlKx3uNkxdH7pmsNhrG4SQI4nazuoHpe",
-            "https://www.youtube.com/embed/videoseries?list=PLdlKx3uNkxdFxkDtD8SIpqFyasAynZBrg",
-            "https://www.youtube.com/embed/videoseries?list=PLdlKx3uNkxdFOQi7hXlL0zxCRcU92IroH",
-            "https://www.youtube.com/embed/videoseries?list=PLdlKx3uNkxdFlNk0wR63nGxCotWNWUE_d",
-            "https://www.youtube.com/embed/videoseries?list=PLdlKx3uNkxdGNbjdfofxmyXHj1CJ6Hwv4",
-            "https://www.youtube.com/embed/videoseries?list=PLdlKx3uNkxdGw_R3MfpJw8Va8DPewu1m6",
-            "https://www.youtube.com/embed/videoseries?list=PLdlKx3uNkxdGTEVXoey0rpXkm_JHd29uC",
-            "https://www.youtube.com/embed/videoseries?list=PLdlKx3uNkxdFItIgbMPojHE1ApOPSjdau",
-            "https://www.youtube.com/embed/videoseries?list=PLdlKx3uNkxdGmwwXzLekNC20-UOQp-41G",
-            "https://www.youtube.com/embed/videoseries?list=PLdlKx3uNkxdE89Fs54EGXbcs0qt2V2t7_",
-            "https://www.youtube.com/embed/videoseries?list=PLE9A1375DB3D798F1",
-            "https://www.youtube.com/embed/videoseries?list=PL5A2394BEE271D9EE"
+            {video: "8TPPFcZpCbA", list: "PLdlKx3uNkxdGCkLJKmaf6OXSWi8b8zwoX"},
+            {video: "q4SmMz-qUxc", list: "PLdlKx3uNkxdGb_bH_3YdoPzlC6vVARHpr"},
+            {video: "RsdeYV6wvRA", list: "PLdlKx3uNkxdHp8K79QE3FJVwOmKPmZawq"},
+            {video: "OelleGbefeU", list: "PLdlKx3uNkxdFkJ9zrNui_U6xZ1PJdMf16"},
+            {video: "hUvHKz3ugOg", list: "PLdlKx3uNkxdEGEOUxMoXKe_jjjc6Rcd10"},
+            {video: "3JtfHaejoa4", list: "PLdlKx3uNkxdEfBZ8t3pHrfIhjSV5TqNdX"},
+            {video: "QQjAPZtyd78", list: "PLdlKx3uNkxdEHzEkU2FbQuHzNq9joGR1W"},
+            {video: "m_LsMe4XWmA", list: "PLdlKx3uNkxdH7pmsNhrG4SQI4nazuoHpe"},
+            {video: "-MB2i3_9WWQ", list: "PLdlKx3uNkxdFxkDtD8SIpqFyasAynZBrg"},
+            {video: "JIVCY5HfPSo", list: "PLdlKx3uNkxdFOQi7hXlL0zxCRcU92IroH"},
+            {video: "JvOA1BISScs", list: "PLdlKx3uNkxdFlNk0wR63nGxCotWNWUE_d"},
+            {video: "buxvGvsWL4E", list: "PLdlKx3uNkxdGNbjdfofxmyXHj1CJ6Hwv4"},
+            {video: "zq35werjY3M", list: "PLdlKx3uNkxdGw_R3MfpJw8Va8DPewu1m6"},
+            {video: "LBjDKpml85c", list: "PLdlKx3uNkxdGTEVXoey0rpXkm_JHd29uC"},
+            {video: "z7VAKJg5vjw", list: "PLdlKx3uNkxdFItIgbMPojHE1ApOPSjdau"},
+            {video: "9MnqDVOjl6o", list: "PLdlKx3uNkxdGmwwXzLekNC20-UOQp-41G"},
+            {video: "xnitmB22JtQ", list: "PLdlKx3uNkxdE89Fs54EGXbcs0qt2V2t7_"},
+            {video: "k3GmM7bgKx4", list: "PLE9A1375DB3D798F1"},
+            {video: "m_LsMe4XWmA", list: "PL5A2394BEE271D9EE"}
         ];
-
-        // Função para obter um vídeo aleatório
-        function getRandomVideo() {
-            const randomIndex = Math.floor(Math.random() * videos.length);
-            return videos[randomIndex];
-        }
 
         // Função para carregar um vídeo aleatório no iframe
         function loadRandomVideo() {
             const videoFrame = document.getElementById('videoFrame');
-            const randomVideo = getRandomVideo();
-            videoFrame.src = randomVideo;
+            const randomVideo = videos[Math.floor(Math.random() * videos.length)];
+            
+            // Construir a URL com autoplay e mute
+            let url;
+            if (randomVideo.list) {
+                url = `https://www.youtube.com/embed/${randomVideo.video}?list=${randomVideo.list}&autoplay=1&mute=1`;
+            } else {
+                url = `https://www.youtube.com/embed/${randomVideo.video}?autoplay=1&mute=1`;
+            }
+            
+            videoFrame.src = url;
         }
 
         // Event listener para o botão
