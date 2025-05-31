@@ -7,4 +7,8 @@ Sei que situações desse tipo podem atrair aproveitadores pedindo dinheiro, mas
 leia os links, as noticias e se informe sobre o contexto e só faça doações através dos dados fornecidos pelo link OFICIAL também 
 mostrado aqui na minha página (e aqui nesse readme). 
 
+
+PS : Se você está assistindo pelo celular esse link, para ouvir o som você pode clicar no video depois no botão fullscreen e o icone de 
+audio vai aparecer. No desktop ele já aparece normalmente dentro do video na janela. 
+
 Para mais informações acesse [https://pirulla25.com.br](https://www.pirulla.com.br/)
