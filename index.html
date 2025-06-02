@@ -184,12 +184,12 @@ o <!DOCTYPE html>
             const videoFrame = document.getElementById('videoFrame');
             const randomVideo = videos[Math.floor(Math.random() * videos.length)];
             
-            // Construir a URL com autoplay e mute
+            // Construir a URL com autoplay
             let url;
             if (randomVideo.list) {
-                url = `https://www.youtube.com/embed/${randomVideo.video}?list=${randomVideo.list}&autoplay=1&mute=1`;
+                url = `https://www.youtube.com/embed/${randomVideo.video}?list=${randomVideo.list}&autoplay=1`;
             } else {
-                url = `https://www.youtube.com/embed/${randomVideo.video}?autoplay=1&mute=1`;
+                url = `https://www.youtube.com/embed/${randomVideo.video}?autoplay=1`;
             }
             
             videoFrame.src = url;
