@@ -187,9 +187,9 @@ o <!DOCTYPE html>
             // Construir a URL com autoplay
             let url;
             if (randomVideo.list) {
-                url = `https://www.youtube.com/embed/${randomVideo.video}?list=${randomVideo.list}&autoplay=1`;
+                url = `https://www.youtube.com/embed/${randomVideo.video}?list=${randomVideo.list}`;
             } else {
-                url = `https://www.youtube.com/embed/${randomVideo.video}?autoplay=1`;
+                url = `https://www.youtube.com/embed/${randomVideo.video}`;
             }
             
             videoFrame.src = url;
